@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Reviews</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        .movie-details {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .movie-poster {
+            max-width: 300px;
+            margin: 10px 0;
+        }
+        .review-form {
+            margin: 20px 0;
+            padding: 30px;
+            border: 2px solid #E87D0E;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+            box-shadow: 0 8px 25px rgba(232, 125, 14, 0.2);
+        }
+        .review-form h3 {
+            color: #E87D0E;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .review-form input, .review-form textarea, .review-form select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #444;
+            border-radius: 8px;
+            box-sizing: border-box;
+            background: #333;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+        .review-form input:focus, .review-form textarea:focus, .review-form select:focus {
+            outline: none;
+            border-color: #E87D0E;
+            box-shadow: 0 0 10px rgba(232, 125, 14, 0.3);
+        }
+        .review-form label {
+            color: #fff;
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .review-form button {
+            padding: 15px 30px;
+            background: #fa8305;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: 500;
+            transition: all 500ms ease;
+            width: 100%;
+            margin-top: 15px;
+        }
+        .review-form button:hover {
+            background: #E87D0E;
+            transform: scale(1.05);
+        }
+        .user-reviews {
+            margin: 30px 0;
+        }
+        .user-reviews h3 {
+            color: #E87D0E;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        .review-item {
+            margin: 15px 0;
+            padding: 20px;
+            border: 2px solid #444;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .review-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(232, 125, 14, 0.2);
+            border-color: #E87D0E;
+        }
+        .review-header {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 16px;
+        }
+        .review-rating {
+            color: #fa8305;
+            margin-left: 10px;
+            font-weight: 500;
+        }
+        #reviewsList {
+            color: #ccc;
+        }
+        #reviewsList p {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            border-radius: 12px;
+            border: 2px solid #444;
+            font-size: 18px;
+            color: #E87D0E;
+        }
+        .login-message {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f0f8ff;
+            border: 1px solid #add8e6;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="container">
+            <span class="logo">MOVIE BROWSER</span>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li ><a href="/about.html">About us</a></li>
+                    <li class="active"><a href="#">Movie details</a></li>
+                    <li ><a href="/movie reviews.html">Movie Reviews</a></li>
+                    <li class="btn"><a href="/contacts.html">Contacts</a></li>
+                    <li id="authLinks">
+                        <a href="login.html">Login</a> | <a href="register.html">Register</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="review--info">
+                <h1>Movie Details & Reviews</h1>
+            </div>
+
+            <div class="movie-details">
+                <h1 id="movieTitle">Loading...</h1>
+                <img id="moviePoster" src="" alt="Movie Poster" class="movie-poster" />
+                <p id="moviePlot"></p>
+            </div>
+
+            <div id="loginMessage" class="login-message" style="display: none;">
+                <p>Please <a href="login.html">login</a> or <a href="register.html">register</a> to leave a review!</p>
+            </div>
+
+            <div id="reviewForm" class="review-form" style="display: none;">
+                <h3>Leave a Review</h3>
+                <form id="addReviewForm">
+                    <div>
+                        <label>Rating:</label>
+                        <select id="rating" required>
+                            <option value="">Select a rating</option>
+                            <option value="1">⭐ (1/5)</option>
+                            <option value="2">⭐⭐ (2/5)</option>
+                            <option value="3">⭐⭐⭐ (3/5)</option>
+                            <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Your Review:</label>
+                        <textarea id="reviewText" rows="4" placeholder="Write your review here..." required></textarea>
+                    </div>
+                    <button type="submit">Submit Review</button>
+                    <div id="reviewMessage"></div>
+                </form>
+            </div>
+
+            <div class="user-reviews">
+                <h3>User Reviews</h3>
+                <div id="reviewsList">Loading reviews...</div>
+            </div>
+
+        </header> 
+    </div>
+
+
+    <footer>
+        <div class="blocks container">
+            <div>
+                <span class="logo">MOVIE BROWSER</span>
+             
+               
+
+            </div>
+            <div>
+                <h4>About us</h4>
+                <ul>
+                    <li>Our blog</li>
+                    <li>Contact us</li>
+                    <li>our social media</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact us</h4>
+                <p>127 Main Street, Athlone, N39 P8D5</p>
+                <p>+353 5644550940</p>
+                <p>hello@moviebrowser.com</p>
+            </div>
+        </div>
+        <p>Copyright © 2025 Movie Browser All rights Reserved.</p>
+    </footer>
+
+    <script src="reviews.js"></script>
+</body>
+</html>
+
+
+    

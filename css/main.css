@@ -1,0 +1,663 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+
+* { 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', serif;
+    font-weight: 400;
+    color: #fff;
+    font-size: 16px;
+    background: #000;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.wrapper {
+    background:linear-gradient(135deg, #141414, #1f1f1f, #e50914, #9b111e);
+    width: 100%;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    
+    
+
+}
+
+.container {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    padding: 50px 0;
+}
+
+header .logo,
+footer .blocks .logo {
+    text-transform: uppercase;
+    font-size: 29px;
+    font-weight: 800;
+}
+
+header nav {
+    float: right;
+    width: 50%;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    position: relative;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a {
+    color: #fff;
+
+}
+
+header nav ul li.active::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 5px;
+    background: #DC7000;
+    border-radius: 10px;
+    position: relative;
+    top: 10px;
+    left: -15px;
+}
+
+header nav ul li:not(.active):not(.btn) a:hover {
+    border-bottom: 5px solid #DC7000;
+
+}
+header nav ul li.btn a, .email .block button {
+    background: #FA9021;
+    padding: 9px 17px;
+    border-radius: 5px;
+    transition: all 500ms ease;
+}
+
+header nav ul li.btn a:hover, .email .block button:hover {
+    background: #a02604;
+}
+
+.hero {
+    padding-bottom: 100px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero--info {
+    width: 530px;
+    padding-top: 70px;
+}
+
+.hero--info h2 {
+    color: #E87D0E;
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.hero--info h1 {
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.hero--info p {
+    font-weight: 500;
+    line-height: 170%;
+    margin: 30px 0;
+}
+
+.hero--info .btn, .hero-about .info .btn, .aaron-button {
+    background:#fa8305;
+    color: #fff;
+    border-radius: 50px;
+    padding: 15px 30px;
+    border: 0;
+    transition: all 500ms ease;
+    font-size: 17px;
+}
+
+.hero--info .btn:hover, .hero-about .info .btn, .aaron-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.hero img {
+    position: absolute;
+    top: -150px;
+    right: 0;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); 
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.trending {
+    padding-top: 50px;
+}
+
+.trending h3 {
+    font-weight: 600;
+    font-size: 31px;
+}
+
+.trending .see-all {
+    color: #fff;
+    background:#25211d;
+    border-radius: 5px;
+    padding: 12px 23px;
+    float: right;
+    display: block;
+    transition: all 500ms;
+
+}
+
+
+
+.trending .see-all:hover {
+    transform: scale(1.1);
+}
+
+.trending .movies {
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    
+    align-items: start;
+    gap: 20px;
+    justify-items: center;
+    
+   
+}
+
+.trending .movies .block img {
+    height: 400px;
+    width: auto;
+    border-radius: 8px;
+    border-radius: 30px;
+    object-fit: cover;
+    display: block;
+    margin-top: 50px;
+    transition: all 500ms ease;
+    
+}
+
+.trending .movies .block img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+
+
+.big-text {
+    padding: 50px 0;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    width: 800px;
+}
+
+.banner {
+    padding: 80px 0;
+
+}
+
+.banner h3 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.banner p {
+    line-height: 170%;
+    margin-bottom: 30px;
+    width: 550px;
+}
+
+.banner img {
+
+    width:350px;
+    margin-bottom: 30px;
+    animation: bounce 2s infinite;
+    
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); 
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+.images img {
+    width: 20%; 
+    max-width: 300px; 
+    height: auto; 
+    margin: 10px;
+    margin-bottom: 25px;
+    transition: all 500ms ease;
+    
+   
+  
+}
+
+.images img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.images a {
+    
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-inline: 50px;
+    
+}
+
+.projects {
+    padding: 100px 0;
+}
+
+.projects h3 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.projects p {
+    margin: 40px;
+    text-align: center;
+}
+
+.project .see-all {
+    color: #fff;
+    background: #25211d;
+    border-radius: 5px;
+    padding: 12px 23px;
+    display: inline-block;
+    transition: all 500ms ease;
+  
+
+}
+.project .see-all {
+    float: none;
+    width: 60px;
+    text-align: center;
+    margin: 0  auto;
+}
+
+.project .see-all:hover {
+    transform: scale(1.1);
+
+}
+.project {
+    text-align: center;
+}
+
+.email {
+    padding-top: 120px;
+}
+
+.email h3{
+   margin-top: 60px; 
+   font-size: 30px;
+}
+
+.email .block {
+    background:linear-gradient(135deg, #141414,#e50914, #9b111e);
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 40px 30px;
+    width: 94%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.email .block .h4 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.email .block p {
+    width: 500px;
+}
+
+.email .block input {
+    background: #fff;
+    outline: none;
+    border: 0;
+    border-radius: 5px;
+    width: 380px;
+    font-family: 'Poppins', serif;
+    font-weight: 400;
+    padding: 20px 30px;
+    position: relative;
+    right: -98px;
+    z-index: 1;
+    padding-right: 120px;
+
+}
+
+.email .block input::placeholder {
+    color: #898989;
+
+
+}
+
+.email .block button {
+    cursor: pointer;
+    border: 0;
+    padding: 13px 17px;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+footer {
+    background: #141414;
+    padding: 50px 0;
+}
+
+footer .blocks {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .blocks p {
+    width: 300px;
+    margin: 15px 0;
+}
+
+footer .blocks h4 {
+    font-weight:500;
+    font-size: 17px;
+}
+
+footer .blocks ul {
+    list-style: none;
+}
+
+footer .blocks ul li {
+    margin-top: 7px;
+    opacity: 0.8;
+}
+
+.hero-about .info{
+    width: 500px;
+    padding: 250px 0;
+}
+
+.hero-about .info h1{
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+.hero-about .info .btn {
+ margin-top: 20px;
+}
+
+.hero-about {
+    position: relative;
+}
+
+.hero-about img {
+    position: absolute;
+    right: -50px;
+    top: 0;
+
+}
+
+.hero-about img {
+    width: 100%;  /* Make it responsive */
+    max-width: 800px; /* Set a max width */
+    display: block; /* Ensure proper spacing */
+    margin: 20px auto; /* Center it */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 5px solid transparent;
+   
+}
+
+.hero-about img:hover {
+    transform: scale(1.03); /* Slight zoom effect */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6); /* More depth on hover */
+}
+
+.hero-contacts h1 {
+    text-align: center;
+    margin-top:70px ;
+    margin-bottom: 30px;
+    font-size: 33px;
+}
+
+.hero-contacts p {
+  text-align: center;
+}
+
+.hero-contacts img {
+    width: 70%;
+    margin: 80px 15%;
+}
+
+.feedback {
+    padding: 70px 0;
+    background: #1c140f;
+}
+
+.feedback h2 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 30px;
+
+}
+
+.feedback p {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.feedback form {
+    margin: 80px auto;
+    width: 600px;
+}
+
+.feedback form .inline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feedback form .inline > div {
+    width: 50%;
+
+}
+
+.feedback form label {
+   color: #4f4f4f;
+   font-size: 14px;
+}
+
+.feedback form input,
+.feedback form textarea {
+    background: #2c2420;
+    border-radius: 10px;
+    border: 0.6px solid #cecece;
+    display: block;
+    width: 90%;
+    padding: 15px 10px;
+    outline: none;
+    color: #fff;
+    margin-top: 7px;
+    margin-bottom: 20px;
+}
+
+
+.feedback form .one-line {
+    width: 96%;
+}
+
+.feedback form textarea {
+    resize: none;
+    height: 200px;
+
+}
+
+.feedback form button {
+    background: #DC7000;
+    border-radius: 5px;
+    border: 0;
+    float: right;
+    cursor: pointer;
+    color: #fff;
+    padding: 15px 35px;
+    transition: all 500ms ease;
+}
+
+.feedback form button:hover {
+    background: #b01414;
+   
+}
+
+.review--info h1 {
+    font-size: 50px;
+    font-weight: 600;
+    padding: 100px 30px;
+    text-align: center;
+}
+
+.review--info h2 {
+    color: #E87D0E;
+    font-size: 20px;
+    font-weight: 600;
+    font-size: 30px;
+
+}
+
+.review-poster img {
+    height: 500px;
+    width: auto;
+    border-radius: 8px;
+    border-radius: 30px;
+    object-fit: cover;
+    display: block;
+    margin-top: 20px;
+    transition: all 500ms ease;
+    margin-left: 44px;
+    
+
+}
+.review-poster img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.review h2 {
+    color:  #b01414;
+    font-size: 20px;
+    font-weight: 600;
+    font-size: 30px;
+    padding-top: 30px;
+    margin-left: 44px;
+
+}
+
+.review-box p {
+    color:#fff;
+    font-size: 20px;
+    padding-top: 15px;
+    margin-left: 44px;
+}
+
+.real-movie-reviews a{
+    
+    font-size: 20px;
+    padding-top: 5px;
+    margin-left: 44px;
+
+}
+
+
+.review-box {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: #fff;
+  }
+  
+  .review-box a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #f39c12;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .review-box a:hover {
+    text-decoration: underline;
+  }
+
+
+  .contact-details {
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    margin: 40px auto;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.8;
+  }
+  
+  .contact-details h2 {
+    margin-bottom: 15px;
+    color: #f39c12;
+    font-size: 26px;
+  }
+  
+  .contact-details a {
+    color: #f39c12;
+    text-decoration: none;
+  }
+  
+  .contact-details a:hover {
+    text-decoration: underline;
+  }
+
+
+
+  
