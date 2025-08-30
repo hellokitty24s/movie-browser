@@ -12,7 +12,13 @@
         <header class="container">
             <span class="logo">Movie Browser</span>
             
-            <nav>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav id="mobileNav">
                 <ul>
                     <li class="active"><a href="index.html">Home</a></li>
                     <li><a href="about.html">About us</a></li>
@@ -303,6 +309,12 @@
             localStorage.removeItem('sessionId');
             localStorage.removeItem('username');
             updateAuthLinks();
+        }
+        
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mobileNav');
+            nav.classList.toggle('active');
         }
         
         // Update auth links on page load

@@ -35,8 +35,10 @@ img {
 }
 
 .container {
-    width: 1400px;
+    width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 header {
@@ -86,7 +88,6 @@ header nav ul li.active::after {
 
 header nav ul li:not(.active):not(.btn) a:hover {
     border-bottom: 5px solid #DC7000;
-
 }
 header nav ul li.btn a, .email .block button {
     background: #FA9021;
@@ -106,7 +107,8 @@ header nav ul li.btn a:hover, .email .block button:hover {
 }
 
 .hero--info {
-    width: 530px;
+    width: 100%;
+    max-width: 530px;
     padding-top: 70px;
 }
 
@@ -187,13 +189,10 @@ header nav ul li.btn a:hover, .email .block button:hover {
 
 .trending .movies {
     display:grid;
-    grid-template-columns: repeat(4,1fr);
-    
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     align-items: start;
     gap: 20px;
     justify-items: center;
-    
-   
 }
 
 .trending .movies .block img {
@@ -221,7 +220,8 @@ header nav ul li.btn a:hover, .email .block button:hover {
     font-size: 35px;
     font-weight: 600;
     text-align: center;
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .banner {
@@ -238,7 +238,8 @@ header nav ul li.btn a:hover, .email .block button:hover {
 .banner p {
     line-height: 170%;
     margin-bottom: 30px;
-    width: 550px;
+    width: 100%;
+    max-width: 550px;
 }
 
 .banner img {
@@ -658,6 +659,233 @@ footer .blocks ul li {
     text-decoration: underline;
   }
 
+/* Mobile Navigation */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
 
+.mobile-menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Header Navigation */
+    header {
+        padding: 20px 0;
+    }
+    
+    header .logo {
+        font-size: 24px;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+        float: right;
+        margin-top: 5px;
+    }
+
+    header nav {
+        display: none;
+        width: 100%;
+        float: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(0,0,0,0.95);
+        z-index: 1000;
+    }
+
+    header nav.active {
+        display: block;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    header nav ul li {
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        padding-bottom: 50px;
+    }
+
+    .hero--info {
+        padding-top: 30px;
+    }
+
+    .hero--info h1 {
+        font-size: 32px;
+    }
+
+    .hero--info h2 {
+        font-size: 18px;
+    }
+
+    .hero img {
+        position: static;
+        display: block;
+        margin: 30px auto 0;
+        width: 80%;
+        max-width: 300px;
+    }
+
+    /* Movie Grid */
+    .trending .movies {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .trending .movies .block img {
+        height: 300px;
+        margin-top: 20px;
+    }
+
+    /* Typography */
+    .big-text {
+        font-size: 24px;
+        padding: 30px 0;
+    }
+
+    .trending h3 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    /* Banner Section */
+    .banner {
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .banner h2 {
+        font-size: 24px;
+    }
+
+    .banner img {
+        width: 80%;
+        max-width: 250px;
+    }
+
+    /* TV Shows Section */
+    .images img {
+        width: 45%;
+        margin: 5px;
+    }
+
+    /* Forms */
+    .feedback form {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .feedback form .inline {
+        flex-direction: column;
+    }
+
+    .feedback form .inline > div {
+        width: 100%;
+    }
+
+    .feedback form input,
+    .feedback form textarea {
+        width: 100%;
+    }
+
+    /* Footer */
+    footer .blocks {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    footer .blocks p {
+        width: 100%;
+    }
+
+    /* Contact Details */
+    .contact-details {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    /* Review Section */
+    .review--info h1 {
+        font-size: 32px;
+        padding: 50px 15px;
+    }
+
+    .review-poster img {
+        margin-left: 0;
+        display: block;
+        margin: 20px auto;
+        height: 400px;
+    }
+
+    .review h2,
+    .review-box p,
+    .real-movie-reviews a {
+        margin-left: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small screens */
+    .hero--info h1 {
+        font-size: 24px;
+    }
+
+    .trending .movies {
+        grid-template-columns: 1fr;
+    }
+
+    .trending .movies .block img {
+        height: 350px;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .images img {
+        width: 80%;
+        margin: 10px auto;
+        display: block;
+    }
+
+    .big-text {
+        font-size: 20px;
+    }
+
+    .banner h2 {
+        font-size: 20px;
+    }
+
+    .review-poster img {
+        height: 300px;
+    }
+}
 
   
